@@ -20,6 +20,13 @@ WHERE
 
 3. Selezionare tutti gli studenti che hanno più di 30 anni
 
+SELECT
+    *
+FROM
+    `students`
+WHERE
+    TIMESTAMPDIFF(YEAR, `date_of_birth` , CURDATE()) > 30
+
 
 4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di
 laurea (286)
@@ -76,8 +83,36 @@ WHERE
 9. Inserire nella tabella degli studenti un nuovo record con i propri dati (per il campo
 degree_id, inserire un valore casuale)
 
+INSERT INTO `students`(
+    `id`,
+    `degree_id`,
+    `name`,
+    `surname`,
+    `date_of_birth`,
+    `fiscal_code`,
+    `enrolment_date`,
+    `registration_number`,
+    `email`
+)
+VALUES(
+    '5001',
+    '20',
+    'name',
+    'surname',
+    '2000-08-08',
+    'GSHDSGDHSDGH',
+    '2024-07-02',
+    '625033',
+    'ciao@ciao.it'
+)
 
 10. Cambiare il numero dell’ufficio del professor Pietro Rizzo in 126
 
+UPDATE
+    `teachers`
+SET
+    `office_number` = 125
+WHERE
+    `name` LIKE "Pietro" AND `surname` LIKE "Rizzo" AND `office_number` = 126
 
 11. Eliminare dalla tabella studenti il record creato precedentemente al punto 9
